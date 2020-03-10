@@ -1,15 +1,12 @@
-# -*- coding: utf-8 -*-
-from flask import Flask
-
-# 自分自身の名前をappという変数でインスタンス化
-app = Flask(__name__)
-
-@app.route('/')
+import os
+from bottle import route, run
+ 
+@route("/")
 def hello_world():
-    return 'Hello World!'
-
-# コマンドラインで本ファイルを起動させたときの動作
-if __name__ == '__main__':
-    # 安全のため debug=False とする
-    # 特に本番稼働するファイルでは debug=True としてはいけない!
-    app.run(debug=False)
+        return "Hello World!"
+ 
+@route("/hello")
+def hello_world():
+        return "hello"
+ 
+run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
