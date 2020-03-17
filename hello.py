@@ -6,7 +6,7 @@ def hello_world():
         return "Hello World! bottle."
  
 @route("/hello")
-def hello_world():
+def hello():
         return "hello"
  
 run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
